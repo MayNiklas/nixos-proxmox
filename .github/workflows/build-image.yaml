@@ -1,0 +1,29 @@
+name: nix workflows
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  nix-flake-check:
+    name: nix flake check
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3.5.2
+
+      - uses: cachix/install-nix-action@v20
+        with:
+          nix_path: nixpkgs=channel:nixos-23.05
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Check nix.conf
+        run: cat /etc/nix/nix.conf
+
+      - name: nix flake show
+        run: |
+          nix flake show
+
+      - name: nix flake check
+        run: |
+          nix flake check
