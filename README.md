@@ -1,5 +1,9 @@
 # NixOS on Proxmox
 
+I created this repository to quickly deploy a minimal NixOS VM on Proxmox.
+Feel free to fork it and adapt it to your needs.
+The image can be build locally, or by using the included GitHub action.
+
 ## Deployment
 
 ### Build the image
@@ -19,7 +23,7 @@ Upload the image to a location, that is accessible by Proxmox.
 # import the VM from VMA image
 # unique is required to randomize the MAC address of the network interface
 # storage is the name of the storage, where we create the VM
-qmrestore ./vzdump-qemu-nixos-23.05.20230616.c7ff1b9.vma.zst 999 --unique true --storage ZFS_mirror
+qmrestore ./vzdump-qemu-nixos-*.vma.zst 999 --unique true --storage ZFS_mirror
 ```
 
 ### Change the VM settings
@@ -32,6 +36,8 @@ Welcome to NixOS!
 
 ## TODO
 
+- [ ] boot partition should be 512MB instead of 256MB
 - [ ] Create a script to deploy the image to Proxmox
 - [ ] Script should ask questions about the VM settings
 - [ ] Script should expand the disk size of the VM
+- [ ] Add documentation
