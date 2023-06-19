@@ -59,6 +59,10 @@ jobs:
           cp result/vzdump-qemu-nixos-*.vma.zst upload/
           ls -al upload
 
+          mkdir newest
+          touch newest/info.txt
+          echo $output/$name > newest/current_version
+
       - name: 📂 Upload files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
@@ -68,3 +72,13 @@ jobs:
           protocol: ftps
           local-dir: ./upload/
           server-dir: ./${{ env.filename }}/
+
+      - name: 📂 Upload newest
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          protocol: ftps
+          local-dir: ./newest/
+          server-dir: ./current_version/
