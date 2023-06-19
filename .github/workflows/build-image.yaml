@@ -16,6 +16,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-23.05
           extra_nix_config: |
             experimental-features = nix-command flakes
+            system-features = nixos-test benchmark big-parallel kvm
 
       - name: Check nix.conf
         run: cat /etc/nix/nix.conf
@@ -40,6 +41,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-23.05
           extra_nix_config: |
             experimental-features = nix-command flakes
+            system-features = nixos-test benchmark big-parallel kvm
 
       - name: build proxmox image
         run: nix build '.#proxmox-image'
