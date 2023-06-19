@@ -32,7 +32,6 @@ Welcome to NixOS!
 
 ## TODO
 
-- [x] Make sure the image is bootable
-- [x] Make sure the image contains all relevant settings
-- [ ] Create CI workflows to build the image and publish it
 - [ ] Create a script to deploy the image to Proxmox
+- [ ] Script should ask questions about the VM settings
+- [ ] Script should expand the disk size of the VM

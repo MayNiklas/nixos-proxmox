@@ -29,10 +29,14 @@
                 # EFI support
                 bios = "ovmf";
                 cores = 4;
-                memory = 4096;
+                memory = 2048;
               };
               qemuExtraConf = {
+                # start the VM automatically on boot
                 onboot = "1";
+                # CPU type "host" should be used for maximum performance
+                # CPU type "kvm64" should be used for maximum compatibility (e.g. for live migration between different CPU types)
+                # for reference: https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines#qm_virtual_machines_settings
                 cpu = "host";
               };
             };
@@ -43,8 +47,10 @@
       };
 
       packages.x86_64-linux = {
+
         # nix build .#proxmox-image
         proxmox-image = self.nixosConfigurations.proxmox-host.config.system.build.VMA;
+
         # nix build .#proxmox-image-uncompressed
         proxmox-image-uncompressed = stdenv.mkDerivation {
           name = "proxmox-image-uncompressed";
@@ -60,6 +66,7 @@
             ${pkgs.zstd}/bin/zstd -d ${self.packages.x86_64-linux.proxmox-image}/vzdump-qemu-nixos-*.vma.zst -o $out/$filename
           '';
         };
+
       };
 
     };
