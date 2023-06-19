@@ -29,4 +29,6 @@
     keyMap = "de";
   };
 
+  system.stateVersion = "23.05";
+
 }
