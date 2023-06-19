@@ -26,6 +26,8 @@
           {
             proxmox = {
               qemuConf = {
+                # EFI support
+                bios = "ovmf";
                 cores = 4;
                 memory = 4096;
               };
