@@ -60,7 +60,7 @@ jobs:
           ls -al upload
 
           mkdir current_version
-          echo $output/$name > current_version/info.txt
+          echo $output/$(basename $name) > current_version/info.txt
 
       - name: 📂 Upload files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
