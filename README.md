@@ -36,8 +36,5 @@ Welcome to NixOS!
 
 ## TODO
 
-- [ ] boot partition should be 512MB instead of 256MB
-- [ ] Create a script to deploy the image to Proxmox
-- [ ] Script should ask questions about the VM settings
 - [ ] Script should expand the disk size of the VM
 - [ ] Add documentation
