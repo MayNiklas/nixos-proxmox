@@ -63,7 +63,7 @@ jobs:
           echo $output/$(basename $name) > current_version/info.txt
 
       - name: 📂 Upload files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
@@ -73,7 +73,7 @@ jobs:
           server-dir: ./${{ env.filename }}/
 
       - name: 📂 Upload newest
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.ftp_server }}
           username: ${{ secrets.ftp_username }}
