@@ -53,6 +53,9 @@
     zsh
   ];
 
+  # enable the qemu guest agent
+  services.qemuGuest.enable = true;
+
   ### Nix ###
   system.stateVersion = "23.05";
 
