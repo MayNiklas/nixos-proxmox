@@ -53,6 +53,9 @@
     zsh
   ];
 
+  ### Networking ###
+  networking.hostName = "proxmox-host";
+
   ### settings specific to this VM setup ###
   # enable after installation!
 
