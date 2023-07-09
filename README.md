@@ -34,6 +34,12 @@ It makes sense to expand the disk size of the VM.
 
 Welcome to NixOS!
 
+### Apply config changes
+
+1. Clone this repository
+2. Apply your changes to the configuration
+3. Execute `nixos-rebuild switch --flake .#proxmox-host`
+
 ## TODO
 
 - [ ] Script should expand the disk size of the VM
