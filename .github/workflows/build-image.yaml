@@ -9,7 +9,7 @@ jobs:
     name: nix flake check
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v3.6.0
 
       - uses: cachix/install-nix-action@v22
         with:
@@ -34,7 +34,7 @@ jobs:
     name: Build proxmox image
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v3.6.0
 
       - uses: cachix/install-nix-action@v22
         with:
